@@ -1,0 +1,1310 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <div class="content">
+      <div class="container-xl">
+        <!-- Page title -->
+        <div class="page-header d-print-none">
+          <div class="row align-items-center">
+            <div class="col-md-1 col-4">
+              <!-- Page pre-title -->
+              <div class="page-pretitle" id="up_date">
+              </div>
+              <h2 class="page-title" id="up_time">
+              </h2>
+              <script>var upt = new Date(); document.getElementById("up_time").innerHTML=upt.getHours() + ":"+ upt.getMinutes(); document.getElementById("up_date").innerHTML = upt.getDate() +"."+ upt.getUTCMonth() +"."+ upt.getFullYear();</script>
+            </div>  <div class="col-md-4 col-8">
+              <div class="input-icon">
+                <input type="text" class="form-control form-control-rounded" placeholder="Search…">
+                <span class="input-icon-addon">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="10" cy="10" r="7"></circle><line x1="21" y1="21" x2="15" y2="15"></line></svg>
+                </span>
+              </div>
+          </div>
+            <!-- Page title actions -->
+            <div class="col-auto ml-auto d-print-none">
+              <div class="btn-list">
+                <div class="w-100">
+                  <button type="button" class="btn">Option 1</button>
+                  <button type="button" class="btn">Option 2</button>
+                  <button type="button" class="btn btn-primary">Option 3</button>
+                  <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Other
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" style="">
+                      <a class="dropdown-item" href="#">
+                        Option 4
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        Option 5
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        Option 6
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-deck row-cards mt-1">
+          <div class="col-md-12">
+            <div class="card">
+              <ul class="nav nav-tabs" data-toggle="tabs">
+                <li class="nav-item">
+                  <a href="#tabs-all" class="nav-link active" data-toggle="tab">Все отправления</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#tabs-ozh-sbor" class="nav-link" data-toggle="tab">Ожидают сборки</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#tabs-ozh-otgr" class="nav-link" data-toggle="tab">Ожидают отгрузки</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#tabs-spor" class="nav-link" data-toggle="tab">Спорные</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#tabs-vputi" class="nav-link" data-toggle="tab">Доставляются</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#tabs-dost" class="nav-link" data-toggle="tab">Доставлены</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#tabs-otmen" class="nav-link" data-toggle="tab">Отменены</a>
+                </li>
+              </ul>
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="tab-pane fade active show" id="tabs-all">
+                    <div class="col-12">
+                      <div class="card">
+					    <div class="nav-item dropdown" id="sett_t">
+                          <a class="nav-link dropdown-toggle" href="#navbar-layout" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            </span>
+                          </a>
+                          <ul class="dropdown-menu columns">
+                            <li>
+                       <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                            <li>
+                      <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                          </ul>
+                        </div>
+                        <div class="table-responsive">
+                          <table class="table table-vcenter card-table table-striped">
+                            <thead>
+                              <tr>
+                                <th>Принят</th>
+                                <th>Заказ</th>
+                                <th>Отправление</th>
+                                <th>Артикул</th>
+                                <th>Название</th>
+                                <th>Колич</th>
+                                <th>Стоимость</th>
+                                <th>Закупка</th>
+                                <th>Профит</th>
+                                <th>Статус</th>
+                                <th class="w-1"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in dbdata %}
+                                  <tr>
+                                    <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">{{ item.created_at_date }}</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">{{ item.created_at_time }}</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                    <td class="text-muted">
+                                    {{ item.order_number }}
+                                    </td>
+                                    <td class="text-muted">
+                                    {{ item.posting_number }}
+                                    </td>
+                                    <td class="text-muted">
+                                    {{ item.offer_id }}
+                                    </td>
+                                    <td class="text-muted">
+                                    {{ item.name }}
+                                    </td>
+                                    <td class="text-muted">
+                                    {{ item.quantity }}
+                                    </td>
+                                    <td class="text-muted">
+                                    {{ item.price }}
+                                    </td>
+                                    <td class="text-muted">
+                                    ???
+                                    </td>
+                                    <td>
+                                        <div class="d-flex py-1 align-items-center">
+                                            <div class="flex-fill">
+                                        <div class="font-weight-medium">???</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">???</a></div>
+                                      </div>
+                                        </div>
+                                    </td>
+								    <td class="text-muted">
+                                    {{ item.status }}
+                                    </td>
+                                  </tr>
+                            {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>                                </div>
+					<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="" id="preview" style="width: 100%;" >
+      </div>
+    </div>
+  </div>
+</div>
+                    <div class="tab-pane fade" id="tabs-ozh-sbor">
+<div class="form-group row mb-2 align-items-center">
+  <div class="col-md-10">
+					<div class="form-selectgroup form-selectgroup-boxes">
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager[]" value="1" class="form-selectgroup-input">
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">Все отправления</div>
+                                    <div class="text-muted">32 отправления</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager[]" value="2" class="form-selectgroup-input" checked>
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">16.11</div>
+                                    <div class="text-muted">28 отправлений</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager[]" value="3" class="form-selectgroup-input">
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">17.11</div>
+                                    <div class="text-muted">4 отправления</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager[]" value="4" class="form-selectgroup-input">
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">18.11</div>
+                                    <div class="text-muted">1 отправление</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager[]" value="5" class="form-selectgroup-input">
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">Позднее</div>
+                                    <div class="text-muted">1 отправление</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                          </div>
+						  </div>
+						   <div class="col-md-2 text-right">
+						  <button type="submit" class="btn btn-primary btn-sm w-100">Собрать все</button>
+						  </div>
+						  </div>
+
+                      <div class="col-12">
+                        <div class="card">
+						<div class="nav-item dropdown" id="sett_t">
+                  <a class="nav-link dropdown-toggle" href="#navbar-layout" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu columns">
+                    <li>
+                       <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                          <div class="table-responsive">
+                            <table class="table table-vcenter card-table">
+                              <thead>
+
+                                <tr>
+								<th class="w-1"></th>
+                                  <th>Принят</th>
+                                  <th>Отгрузка</th>
+                                  <th>Заказ</th>
+                                  <th>Отправление</th>
+                                  <th>Артикул</th>
+                                  <th style="display: block; width: 250px;">Название</th>
+                                  <th>Колич</th>
+                                  <th>Стоимость</th>
+                                  <th>Закупка</th>
+                                  <th>Профит</th>
+                                  <th>Действия</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for i in dbdata  %}
+
+                                <tr>
+								  <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <a href="#" id="zoom" style="width:50px;"><img class="avatar mr-2" id="image" src="./static/avatars/006m.jpg" style="height:auto;"></a>
+                                    </div>
+                                </td>
+                                  <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.7777</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                </td>
+                                  <td class="text-muted">21.11.4444</td>
+                                  <td class="text-muted">
+                                    03567636-0016
+                                </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td style="display: block; width: 250px;">
+                                    Защитное стекло для Samsung Galaxy S10, (Самсунг Галакси С10) (полная проклейка)
+                                </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                </td>
+                                  <td class="text-muted">
+                                    200
+                                </td>
+                                  <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                </td>
+                                  <td>
+                                    <div class="btn-list flex-nowrap">
+                                       <div class="dropdown position-static">
+                                         <button class="btn dropdown-toggle align-text-top" data-boundary="viewport" data-toggle="dropdown" aria-expanded="false">
+                                             Actions
+                                         </button>
+                                         <div class="dropdown-menu dropdown-menu-right" style="">
+                                            <a class="dropdown-item" href="#">
+                                                Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                                Another action
+                                            </a>
+                                         </div>
+                                       </div>
+                                    </div>
+                                </td>
+                                </tr>
+
+                              {% endfor %}
+
+
+
+                                <tr>
+								<td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <a href="#" id="zoom" style="width:50px;"><img class="avatar mr-2" id="image" src="./static/avatars/006m.jpg" style="height:auto;"></a>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">11.11.8888</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">17:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="text-muted">11.11.9999</td>
+                                  <td class="text-muted">
+                                    03566636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    035644636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sсыs2577
+                                  </td>
+                                  <td style="display: block; width: 250px;">
+                                    Защитное стекло для Redmi 9, (Редми 9) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="btn-list flex-nowrap">
+                            <div class="dropdown position-static">
+                              <button class="btn dropdown-toggle align-text-top" data-boundary="viewport" data-toggle="dropdown" aria-expanded="false">
+                                Actions
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" style="">
+                                <a class="dropdown-item" href="#">
+                                  Action
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  Another action
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                                  </td>
+								  </tr>
+                               <tr>
+								<td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <a href="#" id="zoom" style="width:50px;"><img class="avatar mr-2" id="image" src="./static/avatars/006m.jpg" style="height:auto;"></a>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">12.11.5555</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">16:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="text-muted">15.12.6666</td>
+                                  <td class="text-muted">
+                                    55567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams227
+                                  </td>
+                                  <td style="display: block; width: 250px;">
+                                    Экран для Samsung Galaxy S10, (Самсунг Галакси С10)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    2500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    1000
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">2000</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="btn-list flex-nowrap">
+                            <div class="dropdown position-static">
+                              <button class="btn dropdown-toggle align-text-top" data-boundary="viewport" data-toggle="dropdown" aria-expanded="false">
+                                Actions
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" style="">
+                                <a class="dropdown-item" href="#">
+                                  Action
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  Another action
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="tabs-ozh-otgr">
+					<div class="form-group row mb-2 align-items-center">
+  <div class="col-md-10">
+					<div class="form-selectgroup form-selectgroup-boxes">
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager2[]" value="1" class="form-selectgroup-input">
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">Все отправления</div>
+                                    <div class="text-muted">32 отправления</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager2[]" value="2" class="form-selectgroup-input" checked>
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">16.11</div>
+                                    <div class="text-muted">28 отправлений</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager2[]" value="3" class="form-selectgroup-input">
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">17.11</div>
+                                    <div class="text-muted">4 отправления</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager2[]" value="4" class="form-selectgroup-input">
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">18.11</div>
+                                    <div class="text-muted">1 отправление</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                            <label class="form-selectgroup-item flex-fill">
+                              <input type="radio" name="form-project-manager2[]" value="5" class="form-selectgroup-input">
+                              <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                <div class="form-selectgroup-label-content d-flex align-items-center">
+                                  <div>
+                                    <div class="font-weight-medium">Позднее</div>
+                                    <div class="text-muted">1 отправление</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </label>
+                          </div>
+						  </div>
+						  <div class="col-md-2 text-right">
+						  <button type="submit" class="btn btn-primary btn-sm mb-1 w-100">Маркировки</button><button type="submit" class="btn btn-primary btn-sm mt-1 w-100">Акты</button>
+						  </div>
+						  </div>
+                      <div class="col-12">
+                        <div class="card">
+						<div class="nav-item dropdown" id="sett_t">
+                  <a class="nav-link dropdown-toggle" href="#navbar-layout" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu columns">
+                    <li>
+                       <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                          <div class="table-responsive">
+                            <th><table class="table table-vcenter card-table">
+                              <thead>
+                                <tr>
+				<th><input id="chek_all" class="form-check-input m-0 align-middle" type="checkbox"></th>
+                                 <th><label class="form-switch"><input id="chek_swich_all" class="form-check-input" type="checkbox" ></label></th>
+                                  <th class="w-1"></th>
+                                  <th class="w-25">Принят</th>
+                                  <th class="w-25">Отгрузка</th>
+                                  <th class="w-25">Заказ</th>
+                                  <th class="w-25">Отправление</th>
+                                  <th class="w-25">Артикул</th>
+                                  <th style="display: block; width: 250px;">Название</th>
+                                  <th class="w-25">Колич</th>
+                                  <th class="w-25">Стоимость</th>
+                                  <th class="w-25">Закупка</th>
+                                  <th class="w-25">Профит</th>
+                                  <th class="w-25">Действия</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                  <td><label class="form-switch">
+                                    <input class="form-check-input" type="checkbox" >
+                                  </label></td>
+                                  <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <a href="#" id="zoom" style="width:50px;"><img class="avatar mr-2" id="image" src="./static/avatars/006m.jpg" style="height:auto;"></a>
+                                    </div>
+                                  </td>
+                                    <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="text-muted">21.11.2020</td>
+                                  <td class="text-muted">
+                                    03567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td style="display: block; width: 250px;">
+                                    Защитное стекло для Samsung Galaxy S10, (Самсунг Галакси С10) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="btn-list flex-nowrap">
+                            <div class="dropdown position-static">
+                              <button class="btn dropdown-toggle align-text-top" data-boundary="viewport" data-toggle="dropdown" aria-expanded="false">
+                                Actions
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" style="">
+                                <a class="dropdown-item" href="#">
+                                  Action
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  Another action
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                                  </td>
+
+                                </tr>
+<tr>
+                                  <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                  <td><label class="form-switch">
+                                    <input class="form-check-input" type="checkbox" >
+                                  </label></td>
+                                  <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <a href="#" id="zoom" style="width:50px;"><img class="avatar mr-2" id="image" src="./static/avatars/006m.jpg" style="height:auto;"></a>
+                                    </div>
+                                  </td>
+                                    <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="text-muted">21.11.2020</td>
+                                  <td class="text-muted">
+                                    03567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td style="display: block; width: 250px;">
+                                    Защитное стекло для Samsung Galaxy S10, (Самсунг Галакси С10) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="btn-list flex-nowrap">
+                            <div class="dropdown position-static">
+                              <button class="btn dropdown-toggle align-text-top" data-boundary="viewport" data-toggle="dropdown" aria-expanded="false">
+                                Actions
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" style="">
+                                <a class="dropdown-item" href="#">
+                                  Action
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  Another action
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                                  </td>
+
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+
+					  </div>
+                      <div class="tab-pane fade" id="tabs-spor">
+                        <div class="col-12">
+                          <div class="card">
+						  <div class="nav-item dropdown" id="sett_t">
+                  <a class="nav-link dropdown-toggle" href="#navbar-layout" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu columns">
+                    <li>
+                       <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                            <div class="table-responsive">
+                              <table class="table table-vcenter card-table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>Принят</th>
+                                    <th>Заказ</th>
+                                    <th>Отправление</th>
+                                    <th>Артикул</th>
+                                    <th>Название</th>
+                                    <th>Колич</th>
+                                    <th>Стоимость</th>
+                                    <th>Закупка</th>
+                                    <th>Профит</th>
+                                    <th>Статус</th>
+                                    <th class="w-1"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+
+                                  <td class="text-muted">
+                                    03567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td class="text-muted">
+                                    Защитное стекло для Redmi 9, (Редми) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+								   <td class="text-muted">
+                                    В наличии
+                                  </td>
+                              </tr>
+
+                                  <tr>
+                                <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+
+                                  <td class="text-muted">
+                                    03567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td class="text-muted">
+                                    Защитное стекло для Redmi 9, (Редми) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+								   <td class="text-muted">
+                                    В наличии
+                                  </td>
+                              </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>                                </div>
+                        <div class="tab-pane fade" id="tabs-vputi">
+                          <div class="col-12">
+                            <div class="card">
+							<div class="nav-item dropdown" id="sett_t">
+                  <a class="nav-link dropdown-toggle" href="#navbar-layout" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu columns">
+                    <li>
+                       <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                              <div class="table-responsive">
+                                <table class="table table-vcenter card-table table-striped">
+                                  <thead>
+								   	<tr>
+                                      <th>Принят</th>
+                                      <th>Заказ</th>
+                                      <th>Отправление</th>
+                                      <th>Артикул</th>
+                                      <th>Название</th>
+                                      <th>Колич</th>
+                                      <th>Стоимость</th>
+                                      <th>Закупка</th>
+                                      <th>Профит</th>
+                                      <th>Статус</th>
+                                      <th class="w-1"></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+
+                                  <td class="text-muted">
+                                    03567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td class="text-muted">
+                                    Защитное стекло для Redmi 9, (Редми) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+								   <td class="text-muted">
+                                    В наличии
+                                  </td>
+                              </tr>
+                                    <tr>
+                                <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+
+                                  <td class="text-muted">
+                                    03567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td class="text-muted">
+                                    Защитное стекло для Redmi 9, (Редми) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+								   <td class="text-muted">
+                                    В наличии
+                                  </td>
+                              </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>                                </div>
+                          <div class="tab-pane fade" id="tabs-dost">
+						  <div class="col-12">
+                                <div class="card">
+								<div class="nav-item dropdown" id="sett_t">
+                  <a class="nav-link dropdown-toggle" href="#navbar-layout" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu columns">
+                    <li>
+                       <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                                  <div class="table-responsive">
+                                    <table class="table table-vcenter card-table table-striped">
+                                      <thead>
+                                        <tr>
+                                          <th>Принят</th>
+                                          <th>Доставлен</th>
+                                          <th>Заказ</th>
+                                          <th>Отправление</th>
+                                          <th>Артикул</th>
+                                          <th>Название</th>
+                                          <th>Колич</th>
+                                          <th>Стоимость</th>
+                                          <th>Закупка</th>
+                                          <th>Профит</th>
+                                          <th class="w-1"></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">12.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">16:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="text-muted">15.12.2020</td>
+                                  <td class="text-muted">
+                                    55567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams227
+                                  </td>
+                                  <td class="text-muted">
+                                    Экран для Samsung Galaxy S10, (Самсунг Галакси С10)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    2500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    1000
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">2000</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="btn-list flex-nowrap">
+                            <div class="dropdown position-static">
+                              <button class="btn dropdown-toggle align-text-top" data-boundary="viewport" data-toggle="dropdown" aria-expanded="false">
+                                Actions
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" style="">
+                                <a class="dropdown-item" href="#">
+                                  Action
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  Another action
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                                  </td>
+                                        </tr>
+
+                                        <tr>
+                                          <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">12.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">16:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="text-muted">15.12.2020</td>
+                                  <td class="text-muted">
+                                    55567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams227
+                                  </td>
+                                  <td class="text-muted">
+                                    Экран для Samsung Galaxy S10, (Самсунг Галакси С10)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    2500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    1000
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">2000</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="btn-list flex-nowrap">
+                            <div class="dropdown position-static">
+                              <button class="btn dropdown-toggle align-text-top" data-boundary="viewport" data-toggle="dropdown" aria-expanded="false">
+                                Actions
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right" style="">
+                                <a class="dropdown-item" href="#">
+                                  Action
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  Another action
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                                  </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                                                           </div>
+                            <div class="tab-pane fade" id="tabs-otmen">
+							<div class="col-12">
+                              <div class="card">
+							  <div class="nav-item dropdown" id="sett_t">
+                  <a class="nav-link dropdown-toggle" href="#navbar-layout" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu columns">
+                    <li>
+                       <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="./layout-vertical.html">
+                        <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                                <div class="table-responsive">
+                                  <table class="table table-vcenter card-table table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th>Принят</th>
+                                        <th>Заказ</th>
+                                        <th>Отправление</th>
+                                        <th>Артикул</th>
+                                        <th>Название</th>
+                                        <th>Колич</th>
+                                        <th>Стоимость</th>
+                                        <th>Закупка</th>
+                                        <th>Профит</th>
+                                        <th>Статус</th>
+                                        <th class="w-1"></th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+
+                                  <td class="text-muted">
+                                    03567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td class="text-muted">
+                                    Защитное стекло для Redmi 9, (Редми) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+								   <td class="text-muted">
+                                    В наличии
+                                  </td>
+                              </tr>
+                                      <tr>
+                                <td>
+                                    <div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">19.11.2020</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">13:23</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+
+                                  <td class="text-muted">
+                                    03567636-0016
+                                  </td>
+                                  <td class="text-muted">
+                                    03567636-0016-1
+                                  </td>
+                                  <td class="text-muted">
+                                    Sams2577
+                                  </td>
+                                  <td class="text-muted">
+                                    Защитное стекло для Redmi 9, (Редми) (полная проклейка)
+                                  </td>
+                                  <td class="text-muted">
+                                    1 шт.
+                                  </td>
+                                  <td class="text-muted">
+                                    500 ₽
+                                  </td>
+                                  <td class="text-muted">
+                                    200
+                                  </td>
+                                  <td><div class="d-flex py-1 align-items-center">
+                                      <div class="flex-fill">
+                                        <div class="font-weight-medium">400</div>
+                                        <div class="text-muted"><a href="#" class="text-reset">100%</a></div>
+                                      </div>
+                                    </div>
+                                  </td>
+								   <td class="text-muted">
+                                    В наличии
+                                  </td>
+                              </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                                                             </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <footer class="footer footer-transparent d-print-none">
+                    <div class="container">
+                      <div class="row text-center align-items-center flex-row-reverse">
+                        <div class="col-lg-auto ml-lg-auto">
+                          <ul class="list-inline list-inline-dots mb-0">
+                            <li class="list-inline-item"><a href="./docs/index.html" class="link-secondary">Documentation</a></li>
+                            <li class="list-inline-item"><a href="./faq.html" class="link-secondary">FAQ</a></li>
+                            <li class="list-inline-item"><a href="https://github.com/MpScope/MpScope" target="_blank" class="link-secondary">Source code</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                          <ul class="list-inline list-inline-dots mb-0">
+                            <li class="list-inline-item">
+                              Copyright © 2020
+                              <a href="." class="link-secondary">MpScope</a>.
+                              All rights reserved.
+                            </li>
+                            <li class="list-inline-item">
+                              <a href="./changelog.html" class="link-secondary">v1.0.0-alpha.12</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </footer>
+                </div>
+{% endblock %}
